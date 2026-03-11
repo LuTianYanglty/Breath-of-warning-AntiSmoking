@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breath of Warning</title>
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- TensorFlow.js & Teachable Machine Pose (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.7.4/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.6/dist/teachablemachine-pose.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Breath of Warning</h1>
+  </header>
+
+  <main>
+    <!-- Start Screen -->
+    <div id="start-screen">
+      <p class="start-title">Breath of Warning</p>
+      <p class="start-subtitle">Real-time pose detection &middot; Interactive audio response</p>
+      <button id="start-btn">START</button>
+    </div>
+
+    <!-- Main App (hidden until started) -->
+    <div id="main-content" hidden>
+      <div class="content-grid">
+
+        <!-- Left: Camera -->
+        <div class="camera-section">
+          <div id="camera-wrapper">
+            <video id="camera" autoplay playsinline muted></video>
+          </div>
+        </div>
+
+        <!-- Right: Controls -->
+        <div class="controls-section">
+
+          <!-- Status -->
+          <div class="status-block">
+            <div class="section-label">Status</div>
+            <div id="status-value" class="status-idle">Idle</div>
+          </div>
+
+          <!-- Detection Info -->
+          <div class="detection-block">
+            <div class="detection-row">
+              <span class="det-label">Class</span>
+              <span class="det-value" id="det-class">&mdash;</span>
+            </div>
+            <div class="detection-row">
+              <span class="det-label">Confidence</span>
+              <span class="det-value" id="det-confidence">&mdash;</span>
+            </div>
+          </div>
+
+          <!-- Threshold -->
+          <div class="threshold-block">
+            <label class="section-label" for="threshold-slider">Threshold</label>
+            <div class="slider-row">
+              <input type="range" id="threshold-slider"
+                     min="0.50" max="0.99" step="0.01" value="0.80">
+              <span id="threshold-value">0.80</span>
+            </div>
+          </div>
+
+          <!-- Sound Selection -->
+          <div class="sound-block">
+            <div class="section-label">Sound Selection</div>
+            <div id="sound-list">
+              <!-- Rendered by appView.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div id="toast" class="toast hidden"></div>
+    </div>
+  </main>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
