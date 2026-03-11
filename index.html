@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="styles/main.css">
 
   <!-- TensorFlow.js & Teachable Machine Pose (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.7.4/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.6/dist/teachablemachine-pose.min.js"></script>
+  <!-- TM Pose 0.8 was built against TF.js 1.3.x; must match to avoid fromPixels errors -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
 </head>
 <body>
 
