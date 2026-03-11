@@ -27,6 +27,7 @@ export class AppPresenter {
     this.view.onStart(() => this.handleStart());
     this.view.onThresholdChange(val => this.handleThresholdChange(val));
     this.view.onSoundToggle((id, checked) => this.handleSoundToggle(id, checked));
+    this.view.onVolumeChange((id, value) => this.handleVolumeChange(id, value));
   }
 
   async handleStart() {
@@ -135,5 +136,9 @@ export class AppPresenter {
       // Smooth fade-out for deselected sound
       this.audio.stop(id);
     }
+  }
+
+  handleVolumeChange(id, value) {
+    this.audio.setVolume(id, value);
   }
 }

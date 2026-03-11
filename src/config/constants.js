@@ -24,6 +24,8 @@ export const SMOKING_LABEL = 'Smoking';
 // ── Audio ──
 export const FADE_DURATION = 0.4;          // seconds
 export const MAX_SELECTED_SOUNDS = 2;
+export const DEFAULT_VOLUME = 0.8;         // 0–1
+export const VOLUME_RAMP_TIME = 0.05;      // seconds, for smooth knob turns
 
 // ── State enums ──
 export const STATUS_IDLE = 'idle';
